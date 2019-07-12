@@ -8,13 +8,13 @@
 
 import UIKit
 
-open protocol AYSegmentedControlsDataSource: class {
+public protocol AYSegmentedControlsDataSource: class {
     func numberOfSegmented(in segmentedControls: AYSegmentedControls) -> Int
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                           titleForSegmentedAt index: Int) -> String
 }
 
-open protocol AYSegmentedControlsDelegate: class {
+public protocol AYSegmentedControlsDelegate: class {
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                              didSelectItemAt index: Int)
 }
@@ -114,19 +114,19 @@ open class AYSegmentedControls: UIControl {
     
     //MARK: - Init
 
-    override open init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    required open init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
     //MARK: - View life cycle
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
     }
