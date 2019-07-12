@@ -9,34 +9,76 @@
 import UIKit
 
 protocol AYSegmentedControlsDataSource: class {
-    func numberOfSegments() -> Int
-    func titleForSegmentIndex(index: Int) -> String
+    func numberOfSegmented(in segmentedControls: AYSegmentedControls) -> Int
+    func segmentedControls(_ segmentedControls: AYSegmentedControls,
+                          titleForSegmentedAt index: Int) -> String
 }
 
 protocol AYSegmentedControlsDelegate: class {
-    func aySegmentedControls(_ aySegmentedControls: AYSegmentedControls,
+    func segmentedControls(_ segmentedControls: AYSegmentedControls,
                              didSelectItemAt index: Int)
 }
 
 extension AYSegmentedControlsDelegate {
-    func aySegmentedControls(_ aySegmentedControls: AYSegmentedControls,
-                             didSelectItemAt index: Int) {
+    func segmentedControls(_ segmentedControls: AYSegmentedControls,
+                           didSelectItemAt index: Int) {
+        
     }
 }
 
 @IBDesignable
 class AYSegmentedControls: UIControl {
     
+    //MARK: - Public variable
+
+    @IBInspectable var hintColor: UIColor = .red {
+        didSet {
+            updateHintViewLayout()
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 1 {
+        didSet {
+            updateLayerLayout()
+        }
+    }
+    
+    @IBInspectable var bordrColor: UIColor = .red {
+        didSet {
+            updateLayerLayout()
+        }
+    }
+    
+    @IBInspectable var padding: CGFloat = 5 {
+        didSet {
+            updateContentViewLayout()
+        }
+    }
+    
+    @IBInspectable var normalTitleColor: UIColor = .red {
+        didSet {
+            updateItemTitleColor()
+        }
+    }
+    
+    @IBInspectable var selectedTitleColor: UIColor = .white {
+        didSet {
+            updateItemTitleColor()
+        }
+    }
+    
+    var titleFont: UIFont = UIFont.systemFont(ofSize: 18) {
+        didSet {
+            titleButtons.forEach({ $0.titleLabel?.font = titleFont })
+        }
+    }
+    
+    var selectedIndex: Int = 0
+
     weak var dataSource: AYSegmentedControlsDataSource?
     weak var delegate: AYSegmentedControlsDelegate?
-    @IBInspectable var hintColor: UIColor = .red
-    @IBInspectable var titleFont: UIFont = UIFont.systemFont(ofSize: 18)
-    @IBInspectable var normalTitleColor: UIColor = .red
-    @IBInspectable var selectedTitleColor: UIColor = .white
-    @IBInspectable var borderWidth: CGFloat = 1
-    @IBInspectable var bordrColor: UIColor = .red
-    @IBInspectable var padding: CGFloat = 5
-    @IBInspectable var selectedIndex: Int = 0
+    
+    //MARK: - Private variable
     
     private var currentPanGesturePoint: CGPoint!
     private var contentViewLeftConstraint: NSLayoutConstraint!
@@ -44,7 +86,9 @@ class AYSegmentedControls: UIControl {
     private var contentViewRightConstraint: NSLayoutConstraint!
     private var contentViewBottomConstraint: NSLayoutConstraint!
     private var hintViewLeftConstrinat: NSLayoutConstraint!
-    private var titleButtons: [UIButton]!
+    private var titleButtons: [UIButton] = []
+    
+    //MARK: - View variable
     
     private lazy var contentView: UIView! = {
         let contentView = UIView(frame: .zero)
@@ -67,6 +111,8 @@ class AYSegmentedControls: UIControl {
         contentView.addSubview(hintView)
         return hintView
     }()
+    
+    //MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,10 +124,14 @@ class AYSegmentedControls: UIControl {
         setup()
     }
     
+    //MARK: - View life cycle
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
     }
+    
+    //MARK: - Setup
     
     private func setup() {
         setupContentView()
@@ -124,6 +174,8 @@ class AYSegmentedControls: UIControl {
         contentView.addGestureRecognizer(panGestureRecognizer)
     }
     
+    //MARK: - UpdateLayout
+    
     private func updateLayout() {
         updateLayerLayout()
         updateContentViewLayout()
@@ -154,7 +206,7 @@ class AYSegmentedControls: UIControl {
         }
 
         ///numberOfSegments的數量必須>=2
-        guard dataSource.numberOfSegments() >= 2 else {
+        guard dataSource.numberOfSegmented(in: self) >= 2 else {
             print("NumberOfSegments must be greater than or equal to 2.")
             
             return
@@ -162,12 +214,13 @@ class AYSegmentedControls: UIControl {
         
         itemStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         titleButtons = []
-        let titleIndices = Array(0...dataSource.numberOfSegments() - 1)
+        let titleIndices = Array(0...dataSource.numberOfSegmented(in: self) - 1)
         for titleIndex in titleIndices {
             let titleButton = UIButton(frame: .zero)
             titleButton.titleLabel?.font = titleFont
             titleButton.tintColor = .clear
-            titleButton.setTitle(dataSource.titleForSegmentIndex(index: titleIndex), for: .normal)
+            titleButton.setTitle(dataSource.segmentedControls(self, titleForSegmentedAt: titleIndex),
+                                 for: .normal)
             titleButton.tag = titleIndex
             titleButton.addTarget(self,
                                   action: #selector(titleButtonTapped(_:)),
@@ -185,10 +238,29 @@ class AYSegmentedControls: UIControl {
         })
     }
     
+    private func updateHintViewLayout() {
+        hintView.backgroundColor = hintColor
+        if let itemCount = dataSource?.numberOfSegmented(in: self) {
+            itemStackView.setNeedsLayout()
+            itemStackView.layoutIfNeeded()
+            hintView.setNeedsLayout()
+            hintView.layoutIfNeeded()
+            hintView.widthAnchor.constraint(equalTo: contentView.widthAnchor,
+                                            multiplier: CGFloat(1.0 / Double(itemCount))).isActive = true
+            hintView.layer.cornerRadius = hintView.frame.size.height / 2
+            let itemWidth = itemStackView.frame.size.width / CGFloat(itemCount)
+            hintViewLeftConstrinat.constant = CGFloat(selectedIndex) * itemWidth
+        }
+    }
+
+    //MARK: - Action
+    
     @objc private func titleButtonTapped(_ button: UIButton) {
         self.selectIndex(at: button.tag, animated: true)
         self.updateItemTitleColor()
     }
+    
+    //MARK: - Gesture
     
     @objc private func panGestureUpdated(_ panGestureRecognizer: UIPanGestureRecognizer) {
         if panGestureRecognizer.state == .began {
@@ -220,7 +292,7 @@ class AYSegmentedControls: UIControl {
             }
             var nextSelectIndex: Int!
             
-            if (selectedIndex + 1) > dataSource?.numberOfSegments() ?? 0 {
+            if (selectedIndex + 1) > dataSource?.numberOfSegmented(in: self) ?? 0 {
                 nextSelectIndex = selectedIndex - 1
             } else {
                 nextSelectIndex = selectedIndex + 1
@@ -254,43 +326,9 @@ class AYSegmentedControls: UIControl {
         }
     }
     
-    private func updateHintViewLayout() {
-        if let itemCount = dataSource?.numberOfSegments() {
-            itemStackView.setNeedsLayout()
-            itemStackView.layoutIfNeeded()
-            hintView.widthAnchor.constraint(equalTo: contentView.widthAnchor,
-                                            multiplier: CGFloat(1.0 / Double(itemCount))).isActive = true
-            hintView.layer.cornerRadius = hintView.frame.size.height / 2
-            let itemWidth = itemStackView.frame.size.width / CGFloat(itemCount)
-            hintViewLeftConstrinat.constant = CGFloat(selectedIndex) * itemWidth
-        }
-    }
-}
-
-extension AYSegmentedControls {
-    func selectIndex(at: Int, animated: Bool) {
-        if let itemCount = dataSource?.numberOfSegments() {
-            if at >= itemCount {
-                fatalError("fatal error: Index out of range")
-            }
-            selectedIndex = at
-            updateHintViewLayout()
-            updateItemTitleColor()
-            if animated {
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.layoutIfNeeded()
-                }, completion: { _ in
-                    self.delegate?.aySegmentedControls(self, didSelectItemAt: self.selectedIndex)
-                })
-            } else {
-                delegate?.aySegmentedControls(self, didSelectItemAt: selectedIndex)
-            }
-        }
-    }
-}
-
-extension AYSegmentedControls {
-    func avgColor(lhs: UIColor, rhs: UIColor, percentage: Double) -> UIColor {
+    //MARK: - Color
+    
+    private func avgColor(lhs: UIColor, rhs: UIColor, percentage: Double) -> UIColor {
         var lhsRed: CGFloat = 0
         var rhsRed: CGFloat = 0
         var lhsGreen: CGFloat = 0
@@ -308,3 +346,26 @@ extension AYSegmentedControls {
     }
 }
 
+//MARK: - Public method
+
+extension AYSegmentedControls {
+    func selectIndex(at: Int, animated: Bool) {
+        if let itemCount = dataSource?.numberOfSegmented(in: self) {
+            if at >= itemCount {
+                fatalError("fatal error: Index out of range")
+            }
+            selectedIndex = at
+            updateHintViewLayout()
+            updateItemTitleColor()
+            if animated {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.layoutIfNeeded()
+                }, completion: { _ in
+                    self.delegate?.segmentedControls(self, didSelectItemAt: self.selectedIndex)
+                })
+            } else {
+                delegate?.segmentedControls(self, didSelectItemAt: selectedIndex)
+            }
+        }
+    }
+}

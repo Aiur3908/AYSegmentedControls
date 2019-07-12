@@ -25,17 +25,100 @@
                                     <constraint firstAttribute="height" constant="50" id="rLq-0L-o1w"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLw-7E-L2W" customClass="AYSegmentedControls" customModule="AYSegmentedControlsDemo" customModuleProvider="target">
+                                <rect key="frame" x="30" y="144" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OlL-ap-fUo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-vn-hn8" customClass="AYSegmentedControls" customModule="AYSegmentedControlsDemo" customModuleProvider="target">
+                                <rect key="frame" x="30" y="224" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="31H-pC-9kJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="hintColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bordrColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalTitleColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-rU-1eK">
+                                <rect key="frame" x="30" y="304" width="354" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSQ-zf-EY2">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="numberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="req-Pm-WtT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPI-bi-V7e">
+                                        <rect key="frame" x="88.5" y="0.0" width="88.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="1"/>
+                                        <connections>
+                                            <action selector="numberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qEz-Al-BD4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWV-7R-lZS">
+                                        <rect key="frame" x="177" y="0.0" width="88.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="2"/>
+                                        <connections>
+                                            <action selector="numberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kG0-F6-TD5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpj-i9-9nt">
+                                        <rect key="frame" x="265.5" y="0.0" width="88.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="3"/>
+                                        <connections>
+                                            <action selector="numberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dba-H7-IfH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eLw-7E-L2W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="01y-Ul-cLO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eLw-7E-L2W" secondAttribute="trailing" constant="30" id="2yp-fS-DfU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aTP-rU-1eK" secondAttribute="trailing" constant="30" id="5xt-n9-22W"/>
+                            <constraint firstItem="Adb-vn-hn8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="UJy-cc-1tp"/>
+                            <constraint firstItem="aTP-rU-1eK" firstAttribute="height" secondItem="Adb-vn-hn8" secondAttribute="height" id="WkF-1v-daZ"/>
+                            <constraint firstItem="aTP-rU-1eK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="XVi-yc-MbC"/>
+                            <constraint firstItem="aTP-rU-1eK" firstAttribute="top" secondItem="Adb-vn-hn8" secondAttribute="bottom" constant="30" id="cVD-Am-rTy"/>
+                            <constraint firstItem="eLw-7E-L2W" firstAttribute="top" secondItem="pJp-tg-GHw" secondAttribute="bottom" constant="30" id="dqh-iF-mJd"/>
                             <constraint firstItem="pJp-tg-GHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="fu8-uS-u4F"/>
+                            <constraint firstItem="Adb-vn-hn8" firstAttribute="top" secondItem="eLw-7E-L2W" secondAttribute="bottom" constant="30" id="jPZ-Bg-XH3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Adb-vn-hn8" secondAttribute="trailing" constant="30" id="oYv-kr-5BL"/>
                             <constraint firstItem="pJp-tg-GHw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sE4-OT-elm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pJp-tg-GHw" secondAttribute="trailing" constant="30" id="smT-3O-IfL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="segmentedControls" destination="pJp-tg-GHw" id="lnS-XP-Nni"/>
+                        <outlet property="segmentedControls1" destination="pJp-tg-GHw" id="3um-Ge-89W"/>
+                        <outlet property="segmentedControls2" destination="eLw-7E-L2W" id="teS-bg-9GU"/>
+                        <outlet property="segmentedControls3" destination="Adb-vn-hn8" id="M3s-Cg-6Ys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
