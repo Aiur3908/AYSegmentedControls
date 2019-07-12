@@ -9,28 +9,12 @@
 /* Begin PBXBuildFile section */
 		CEE3D4F722D877BC004A4485 /* AYSegmentedControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3D4F622D877BC004A4485 /* AYSegmentedControls.swift */; };
 		CEE3D4F822D877CF004A4485 /* AYSegmentedControls.swift in Headers */ = {isa = PBXBuildFile; fileRef = CEE3D4F622D877BC004A4485 /* AYSegmentedControls.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE3D50022D88496004A4485 /* AYSegmentedControlsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3D4FF22D88496004A4485 /* AYSegmentedControlsFrameworkTests.swift */; };
-		CEE3D50222D88496004A4485 /* AYSegmentedControlsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE3D4E922D8776F004A4485 /* AYSegmentedControlsFramework.framework */; };
-		CEE3D50822D884A9004A4485 /* AYSegmentedControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3D4F622D877BC004A4485 /* AYSegmentedControls.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CEE3D50322D88496004A4485 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEE3D4E022D8776F004A4485 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CEE3D4E822D8776F004A4485;
-			remoteInfo = AYSegmentedControls;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CEE3D4E922D8776F004A4485 /* AYSegmentedControlsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AYSegmentedControlsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3D4ED22D8776F004A4485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE3D4F622D877BC004A4485 /* AYSegmentedControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AYSegmentedControls.swift; path = Source/AYSegmentedControls.swift; sourceTree = SOURCE_ROOT; };
-		CEE3D4FD22D88496004A4485 /* AYSegmentedControlsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AYSegmentedControlsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE3D4FF22D88496004A4485 /* AYSegmentedControlsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYSegmentedControlsFrameworkTests.swift; sourceTree = "<group>"; };
-		CEE3D50122D88496004A4485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,14 +25,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEE3D4FA22D88496004A4485 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEE3D50222D88496004A4485 /* AYSegmentedControlsFramework.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -56,7 +32,6 @@
 			isa = PBXGroup;
 			children = (
 				CEE3D4EB22D8776F004A4485 /* AYSegmentedControls */,
-				CEE3D4FE22D88496004A4485 /* AYSegmentedControlsFrameworkTests */,
 				CEE3D4EA22D8776F004A4485 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				CEE3D4E922D8776F004A4485 /* AYSegmentedControlsFramework.framework */,
-				CEE3D4FD22D88496004A4485 /* AYSegmentedControlsFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,15 +51,6 @@
 				CEE3D4ED22D8776F004A4485 /* Info.plist */,
 			);
 			path = AYSegmentedControls;
-			sourceTree = "<group>";
-		};
-		CEE3D4FE22D88496004A4485 /* AYSegmentedControlsFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				CEE3D4FF22D88496004A4485 /* AYSegmentedControlsFrameworkTests.swift */,
-				CEE3D50122D88496004A4485 /* Info.plist */,
-			);
-			path = AYSegmentedControlsFrameworkTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,24 +85,6 @@
 			productReference = CEE3D4E922D8776F004A4485 /* AYSegmentedControlsFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CEE3D4FC22D88496004A4485 /* AYSegmentedControlsFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEE3D50722D88496004A4485 /* Build configuration list for PBXNativeTarget "AYSegmentedControlsFrameworkTests" */;
-			buildPhases = (
-				CEE3D4F922D88496004A4485 /* Sources */,
-				CEE3D4FA22D88496004A4485 /* Frameworks */,
-				CEE3D4FB22D88496004A4485 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CEE3D50422D88496004A4485 /* PBXTargetDependency */,
-			);
-			name = AYSegmentedControlsFrameworkTests;
-			productName = AYSegmentedControlsFrameworkTests;
-			productReference = CEE3D4FD22D88496004A4485 /* AYSegmentedControlsFrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -151,9 +98,6 @@
 					CEE3D4E822D8776F004A4485 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
-					};
-					CEE3D4FC22D88496004A4485 = {
-						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -170,20 +114,12 @@
 			projectRoot = "";
 			targets = (
 				CEE3D4E822D8776F004A4485 /* AYSegmentedControls */,
-				CEE3D4FC22D88496004A4485 /* AYSegmentedControlsFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CEE3D4E722D8776F004A4485 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE3D4FB22D88496004A4485 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -201,24 +137,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEE3D4F922D88496004A4485 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEE3D50822D884A9004A4485 /* AYSegmentedControls.swift in Sources */,
-				CEE3D50022D88496004A4485 /* AYSegmentedControlsFrameworkTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CEE3D50422D88496004A4485 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CEE3D4E822D8776F004A4485 /* AYSegmentedControls */;
-			targetProxy = CEE3D50322D88496004A4485 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CEE3D4EF22D8776F004A4485 /* Debug */ = {
@@ -398,40 +317,6 @@
 			};
 			name = Release;
 		};
-		CEE3D50522D88496004A4485 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AYSegmentedControlsFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = JerryYou.AYSegmentedControlsFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CEE3D50622D88496004A4485 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AYSegmentedControlsFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = JerryYou.AYSegmentedControlsFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -449,15 +334,6 @@
 			buildConfigurations = (
 				CEE3D4F222D8776F004A4485 /* Debug */,
 				CEE3D4F322D8776F004A4485 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEE3D50722D88496004A4485 /* Build configuration list for PBXNativeTarget "AYSegmentedControlsFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEE3D50522D88496004A4485 /* Debug */,
-				CEE3D50622D88496004A4485 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

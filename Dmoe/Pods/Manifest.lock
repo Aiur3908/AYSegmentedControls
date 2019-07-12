@@ -1,0 +1,16 @@
+PODS:
+  - AYSegmentedControls (1.6)
+
+DEPENDENCIES:
+  - AYSegmentedControls
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AYSegmentedControls
+
+SPEC CHECKSUMS:
+  AYSegmentedControls: c6e3214bf0c440d5d16e076cdade1e408e464bb7
+
+PODFILE CHECKSUM: f75aacdb2b832f428c42686c0dded88eabd2ba25
+
+COCOAPODS: 1.6.1

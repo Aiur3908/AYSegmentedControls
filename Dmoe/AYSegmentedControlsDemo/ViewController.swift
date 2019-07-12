@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AYSegmentedControls
 
 class ViewController: UIViewController {
     var segmentedControlsTitles = ["First", "Second", "Third"]

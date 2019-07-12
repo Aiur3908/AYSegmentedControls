@@ -1,0 +1,6 @@
+framework module AYSegmentedControls {
+  umbrella header "AYSegmentedControls-umbrella.h"
+
+  export *
+  module * { export * }
+}
