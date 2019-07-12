@@ -106,7 +106,13 @@ or
 segmentedControls.selectIndex(at: 2, animated: true)
 ```
 
+### Author
 
+Jerry You
+Email: Aiur3908@gmail.com
+
+### LICENSE
+MIT
 
 
 
