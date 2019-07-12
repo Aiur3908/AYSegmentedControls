@@ -94,7 +94,7 @@ var titleFont: UIFont
 
 ------
 
-Change selectedIndex programmatically
+### SelectedIndex 
 
 ```Swift
 segmentedControls.selectedIndex = 1
@@ -105,6 +105,8 @@ or
 ```Swift
 segmentedControls.selectIndex(at: 2, animated: true)
 ```
+
+------
 
 ### Author
 
