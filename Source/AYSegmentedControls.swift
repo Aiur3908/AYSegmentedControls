@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AYSegmentedControlsDataSource: class {
+open protocol AYSegmentedControlsDataSource: class {
     func numberOfSegmented(in segmentedControls: AYSegmentedControls) -> Int
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                           titleForSegmentedAt index: Int) -> String
 }
 
-protocol AYSegmentedControlsDelegate: class {
+open protocol AYSegmentedControlsDelegate: class {
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                              didSelectItemAt index: Int)
 }
@@ -27,56 +27,56 @@ extension AYSegmentedControlsDelegate {
 }
 
 @IBDesignable
-class AYSegmentedControls: UIControl {
+open class AYSegmentedControls: UIControl {
     
     //MARK: - Public variable
 
-    @IBInspectable var hintColor: UIColor = .red {
+    @IBInspectable open var hintColor: UIColor = .red {
         didSet {
             updateHintViewLayout()
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 1 {
+    @IBInspectable open var borderWidth: CGFloat = 1 {
         didSet {
             updateLayerLayout()
         }
     }
     
-    @IBInspectable var bordrColor: UIColor = .red {
+    @IBInspectable open var bordrColor: UIColor = .red {
         didSet {
             updateLayerLayout()
         }
     }
     
-    @IBInspectable var padding: CGFloat = 5 {
+    @IBInspectable open var padding: CGFloat = 5 {
         didSet {
             updateContentViewLayout()
         }
     }
     
-    @IBInspectable var normalTitleColor: UIColor = .red {
+    @IBInspectable open var normalTitleColor: UIColor = .red {
         didSet {
             updateItemTitleColor()
         }
     }
     
-    @IBInspectable var selectedTitleColor: UIColor = .white {
+    @IBInspectable open var selectedTitleColor: UIColor = .white {
         didSet {
             updateItemTitleColor()
         }
     }
     
-    var titleFont: UIFont = UIFont.systemFont(ofSize: 18) {
+    open var titleFont: UIFont = UIFont.systemFont(ofSize: 18) {
         didSet {
             titleButtons.forEach({ $0.titleLabel?.font = titleFont })
         }
     }
     
-    var selectedIndex: Int = 0
+    open var selectedIndex: Int = 0
 
-    weak var dataSource: AYSegmentedControlsDataSource?
-    weak var delegate: AYSegmentedControlsDelegate?
+    weak open var dataSource: AYSegmentedControlsDataSource?
+    weak open var delegate: AYSegmentedControlsDelegate?
     
     //MARK: - Private variable
     
@@ -114,12 +114,12 @@ class AYSegmentedControls: UIControl {
     
     //MARK: - Init
 
-    override init(frame: CGRect) {
+    override open init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required open init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -349,7 +349,7 @@ class AYSegmentedControls: UIControl {
 //MARK: - Public method
 
 extension AYSegmentedControls {
-    func selectIndex(at: Int, animated: Bool) {
+    open func selectIndex(at: Int, animated: Bool) {
         if let itemCount = dataSource?.numberOfSegmented(in: self) {
             if at >= itemCount {
                 fatalError("fatal error: Index out of range")
