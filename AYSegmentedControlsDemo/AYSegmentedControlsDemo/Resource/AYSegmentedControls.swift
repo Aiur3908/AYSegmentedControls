@@ -9,12 +9,30 @@
 import UIKit
 
 public protocol AYSegmentedControlsDataSource: class {
+    /**
+     The number of item that the segmentedControls should display.
+     - Parameter segmentedControls: An object representing the segmentedControls requesting the data.
+     - Returns: Item count
+     */
     func numberOfItem(in segmentedControls: AYSegmentedControls) -> Int
+    
+    /**
+     The string to use as the title of the item.
+     - Parameter segmentedControls: An object representing the segmentedControls requesting the data.
+     - Parameter index: Item index.
+     - Returns: Item Title.
+     */
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                           titleForItemAt index: Int) -> String
 }
 
 public protocol AYSegmentedControlsDelegate: class {
+    
+    /**
+     The Called by the segmentedControls when the user selects an item.
+     - Parameter segmentedControls: A segmentedControls object informing the delegate about the select item.
+     - Parameter index: Select item index
+     */
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
                              didSelectItemAt index: Int)
 }
@@ -31,48 +49,56 @@ open class AYSegmentedControls: UIControl {
     
     //MARK: - Public variable
 
+    ///HintView background.
     @IBInspectable open var hintColor: UIColor = .red {
         didSet {
             updateHintViewLayout()
         }
     }
     
+    ///SegmentedControls border width.
     @IBInspectable open var borderWidth: CGFloat = 1 {
         didSet {
             updateLayerLayout()
         }
     }
     
+    ///SegmentedControls border color.
     @IBInspectable open var bordrColor: UIColor = .red {
         didSet {
             updateLayerLayout()
         }
     }
     
+    ///Content padding.
     @IBInspectable open var padding: CGFloat = 5 {
         didSet {
             updateContentViewLayout()
         }
     }
     
+    ///Normal status title color.
     @IBInspectable open var normalTitleColor: UIColor = .red {
         didSet {
             updateItemTitleColor()
         }
     }
     
+    ///Selected status title color.
     @IBInspectable open var selectedTitleColor: UIColor = .white {
         didSet {
             updateItemTitleColor()
         }
     }
     
+    ///Title Font
     open var titleFont: UIFont = UIFont.systemFont(ofSize: 18) {
         didSet {
             titleButtons.forEach({ $0.titleLabel?.font = titleFont })
         }
     }
     
+    ///Selected item index
     open var selectedIndex: Int = 0
 
     weak open var dataSource: AYSegmentedControlsDataSource?
