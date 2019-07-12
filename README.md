@@ -6,7 +6,7 @@ iOS Custom SegmentedControls
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/Auk.svg?style=flat)](http://cocoadocs.org/docsets/Auk)
 [![License](https://img.shields.io/cocoapods/l/Auk.svg?style=flat)](LICENSE)
-
+[![Build Status](https://travis-ci.com/Aiur3908/AYSegmentedControls.svg?branch=master)](https://travis-ci.com/Aiur3908/AYSegmentedControls)
 ![image](https://github.com/Aiur3908/AYSegmentedControls/blob/master/README/Image/Demo.gif)
 
 ## Installation
