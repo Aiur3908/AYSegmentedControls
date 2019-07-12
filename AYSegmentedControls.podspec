@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
   #
 
   #spec.license      = "MIT (example)"
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -62,8 +62,9 @@ Pod::Spec.new do |spec|
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-
-  spec.platform     = :ios
+  
+  spec.swift_version = "4.2"
+  spec.platform     = :ios, "10.0"
   # spec.platform     = :ios, "5.0"
 
   #  When using multiple platforms
