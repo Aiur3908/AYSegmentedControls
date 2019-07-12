@@ -57,15 +57,11 @@ segmentedControls.delegate = self
 ```Swift
 
 ///The number of item that the segmentedControls should display.
-func numberOfItem(in segmentedControls: AYSegmentedControls) -> Int {
-    
-}
+func numberOfItem(in segmentedControls: AYSegmentedControls) -> Int 
 
 ///The string to use as the title of the item.
 func segmentedControls(_ segmentedControls: AYSegmentedControls,
-                       titleForItemAt index: Int) -> String {
-}
-
+                       titleForItemAt index: Int) -> String
 ```
 
 ### Delegate 
@@ -77,7 +73,48 @@ func segmentedControls(_ segmentedControls: AYSegmentedControls,
                        
 ```
 
-## Usage
+## Custom Properties
 
+```Swift
+var hintColor: UIColor 
+```
+HintView backgound.
+Defalut value: UIColor.red
+
+```Swift
+var borderWidth: CGFloat
+```
+SegmentedControl border width.
+Default value: 1
+
+```Swift
+var bordrColor: CGFloat
+```
+SegmentedControl border width.
+Defalut value: UIColor.red
+
+```Swift
+var padding: CGFloat 
+```
+Content padding.
+Defalut value: 5
+
+```Swift
+var normalTitleColor: UIColor 
+```
+Normal status title color.
+Defalut value: UIColor.red
+
+```Swift
+var selectedTitleColor: UIColor 
+```
+Selected status title color.
+Defalut value: UIColor.white
+
+```Swift
+var titleFont: UIFont
+```
+Title Font
+Defalut value: UIFont.systemFont(ofSize: 18)
 
 
