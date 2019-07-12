@@ -75,7 +75,6 @@ func segmentedControls(_ segmentedControls: AYSegmentedControls,
 
 ## Custom Properties
 
-HintView backgound.
 ```Swift
 ///HintView background
 var hintColor: UIColor 
@@ -94,4 +93,20 @@ var titleFont: UIFont
 ```
 
 ------
+
+Change selectedIndex programmatically
+
+```Swift
+segmentedControls.selectedIndex = 1
+```
+
+or
+
+```Swift
+segmentedControls.selectIndex(at: 2, animated: true)
+```
+
+
+
+
 
