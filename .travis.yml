@@ -2,7 +2,7 @@ language: swift
 osx_image: xcode10
 
 before_install:
-- travis_wait 35; cd Dmoe; pod install
+- travis_wait 35; cd Dmoe; pod update; pod install;
 
 script:
 - set -o pipefail
