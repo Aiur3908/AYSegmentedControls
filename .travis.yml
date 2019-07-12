@@ -1,2 +1,9 @@
 language: swift
 osx_image: xcode10
+
+before_install:
+- travis_wait 35; cd Dmoe; pod update
+
+script:
+- set -o pipefail
+- xcodebuild build -workspace AYSegmentedControlsDemo.xcworkspace -scheme "AYSegmentedControlsDemo" -sdk iphonesimulator | xcpretty
