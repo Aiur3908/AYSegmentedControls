@@ -75,47 +75,69 @@ func segmentedControls(_ segmentedControls: AYSegmentedControls,
 
 ## Custom Properties
 
+HintView backgound.
 ```Swift
 var hintColor: UIColor 
 ```
-HintView backgound.
-
 Defalut value: UIColor.red
 
+------
+
+SegmentedControl border width.
 ```Swift
 var borderWidth: CGFloat
 ```
-SegmentedControl border width.
 Default value: 1
+
+------
+
+SegmentedControl border width.
 
 ```Swift
 var bordrColor: CGFloat
 ```
-SegmentedControl border width.
+
 Defalut value: UIColor.red
+
+------
+
+Content padding.
 
 ```Swift
 var padding: CGFloat 
 ```
-Content padding.
+
 Defalut value: 5
+
+------
+
+Normal status title color.
 
 ```Swift
 var normalTitleColor: UIColor 
 ```
-Normal status title color.
+
 Defalut value: UIColor.red
+
+------
+
+Selected status title color.
 
 ```Swift
 var selectedTitleColor: UIColor 
 ```
-Selected status title color.
+
 Defalut value: UIColor.white
+
+------
+
+Title Font
 
 ```Swift
 var titleFont: UIFont
 ```
-Title Font
+
 Defalut value: UIFont.systemFont(ofSize: 18)
 
+------
 
