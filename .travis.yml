@@ -2,5 +2,5 @@ language: swift
 osx_image: xcode10
 xcode_project: AYSegmentedControls.xcodeproj
 xcode_scheme: AYSegmentedControls
-xcode_sdk: iphonesimulator10
+xcode_sdk: iphonesimulator9.2
 
