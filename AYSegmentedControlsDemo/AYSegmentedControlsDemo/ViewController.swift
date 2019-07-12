@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 
 extension ViewController: AYSegmentedControlsDataSource {
 
-    func numberOfSegmented(in segmentedControls: AYSegmentedControls) -> Int {
+    func numberOfItem(in segmentedControls: AYSegmentedControls) -> Int {
         var count = 0
         if segmentedControls == segmentedControls1 {
             count = segmentedControlsTitles.count
@@ -68,7 +68,7 @@ extension ViewController: AYSegmentedControlsDataSource {
     }
     
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
-                           titleForSegmentedAt index: Int) -> String {
+                           titleForItemAt index: Int) -> String {
         var title = ""
         if segmentedControls == segmentedControls1 {
             title = segmentedControlsTitles[index]

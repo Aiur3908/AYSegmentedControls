@@ -9,9 +9,9 @@
 import UIKit
 
 public protocol AYSegmentedControlsDataSource: class {
-    func numberOfSegmented(in segmentedControls: AYSegmentedControls) -> Int
+    func numberOfItem(in segmentedControls: AYSegmentedControls) -> Int
     func segmentedControls(_ segmentedControls: AYSegmentedControls,
-                          titleForSegmentedAt index: Int) -> String
+                          titleForItemAt index: Int) -> String
 }
 
 public protocol AYSegmentedControlsDelegate: class {
@@ -206,7 +206,7 @@ open class AYSegmentedControls: UIControl {
         }
 
         ///numberOfSegments的數量必須>=2
-        guard dataSource.numberOfSegmented(in: self) >= 2 else {
+        guard dataSource.numberOfItem(in: self) >= 2 else {
             print("NumberOfSegments must be greater than or equal to 2.")
             
             return
@@ -214,12 +214,12 @@ open class AYSegmentedControls: UIControl {
         
         itemStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         titleButtons = []
-        let titleIndices = Array(0...dataSource.numberOfSegmented(in: self) - 1)
+        let titleIndices = Array(0...dataSource.numberOfItem(in: self) - 1)
         for titleIndex in titleIndices {
             let titleButton = UIButton(frame: .zero)
             titleButton.titleLabel?.font = titleFont
             titleButton.tintColor = .clear
-            titleButton.setTitle(dataSource.segmentedControls(self, titleForSegmentedAt: titleIndex),
+            titleButton.setTitle(dataSource.segmentedControls(self, titleForItemAt: titleIndex),
                                  for: .normal)
             titleButton.tag = titleIndex
             titleButton.addTarget(self,
@@ -240,7 +240,7 @@ open class AYSegmentedControls: UIControl {
     
     private func updateHintViewLayout() {
         hintView.backgroundColor = hintColor
-        if let itemCount = dataSource?.numberOfSegmented(in: self) {
+        if let itemCount = dataSource?.numberOfItem(in: self) {
             itemStackView.setNeedsLayout()
             itemStackView.layoutIfNeeded()
             hintView.setNeedsLayout()
@@ -292,7 +292,7 @@ open class AYSegmentedControls: UIControl {
             }
             var nextSelectIndex: Int!
             
-            if (selectedIndex + 1) > dataSource?.numberOfSegmented(in: self) ?? 0 {
+            if (selectedIndex + 1) > dataSource?.numberOfItem(in: self) ?? 0 {
                 nextSelectIndex = selectedIndex - 1
             } else {
                 nextSelectIndex = selectedIndex + 1
@@ -350,7 +350,7 @@ open class AYSegmentedControls: UIControl {
 
 extension AYSegmentedControls {
     open func selectIndex(at: Int, animated: Bool) {
-        if let itemCount = dataSource?.numberOfSegmented(in: self) {
+        if let itemCount = dataSource?.numberOfItem(in: self) {
             if at >= itemCount {
                 fatalError("fatal error: Index out of range")
             }
