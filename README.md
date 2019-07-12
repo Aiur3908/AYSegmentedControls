@@ -79,6 +79,7 @@ func segmentedControls(_ segmentedControls: AYSegmentedControls,
 var hintColor: UIColor 
 ```
 HintView backgound.
+
 Defalut value: UIColor.red
 
 ```Swift
