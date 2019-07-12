@@ -15,6 +15,10 @@ iOS Custom SegmentedControls
 ```
 pod 'AYSegmentedControls'
 ```
+#### Carthage
+```
+github "Aiur3908/AYSegmentedControls"
+```
 #### Manually
 Add the `AYSegmentedControls.swift` file to your project.
 
