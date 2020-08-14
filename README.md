@@ -1,9 +1,9 @@
 # AYSegmentedControls
 
-iOS Custom SegmentedControls
+Custom SegmentedControls
 
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/RxFlow.svg?style=flat)](https://cocoapods.org/pods/AYSegmentedControls)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/AYSegmentedControls.svg?style=flat)](https://cocoapods.org/pods/AYSegmentedControls)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.com/Aiur3908/AYSegmentedControls.svg?branch=master)](https://travis-ci.com/Aiur3908/AYSegmentedControls)
 [![Platform](https://img.shields.io/cocoapods/p/RxFlow.svg?style=flat)](https://cocoapods.org/pods/AYSegmentedControls)
